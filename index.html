@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kirti Sengar | Web Developer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -50px;
+    }
+
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p {
+      margin: 0.3rem 0;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      flex: 1 1 45%;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contact-form button {
+      padding: 0.7rem 1.5rem;
+      background: #222;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .projects {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <!-- <style type="text/css">
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #000000, #431414);
+  color: #eee;
+  line-height: 1.6;
+}
+
+  </style>
+ -->
+  <!-- <style type="text/css">
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #000000, #431414);
+  color: #eee;
+  line-height: 1.6;
+}
+
+header {
+  background: transparent;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+  </style> -->
+</head>
+<body>
+
+  <header>
+    <h1>Kirti Sengar</h1>
+    <p>Web Developer | JavaScript Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="profile">
+    <img src="https://i.pinimg.com/736x/e2/c8/fe/e2c8fe7ea2c7ec8a5a40c7cb3ea926f6.jpg" alt="Kirti Sengar Profile Picture" />
+  </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a front-end developer with 3+ years of experience building responsive, user-friendly web applications. I specialize in HTML, CSS, JavaScript, and love working on dynamic projects that solve real-world problems.
+    </p>
+
+    <div class="contact-info">
+      <p><strong>📞 Phone:</strong> <a href="tel:+910000000000">+91 0000000000</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:info@kirti.com">info@kirti.com</a></p>
+      <p><strong>🌐 Website:</strong> <a href="https://kirti.com" target="_blank">https://kirti.com</a></p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A personal website to showcase my skills, projects, and contact info. Built using HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <h3>Task Manager App</h3>
+        <p>A productivity app to manage tasks with due dates, reminders, and dark mode. Built with Vanilla JS and localStorage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="return submitForm(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="form-response" style="color: green; margin-top: 1rem;"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kirti Sengar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      if (name && email && message) {
+        document.getElementById("form-response").textContent = "Thank you! Your message has been sent.";
+        document.querySelector(".contact-form").reset();
+      } else {
+        document.getElementById("form-response").textContent = "Please fill out all fields.";
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
